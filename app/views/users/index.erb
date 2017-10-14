@@ -1,0 +1,19 @@
+<h1>Finstagram</h1>
+<p>
+
+  <% @users.each do |user| %>
+    <div>
+      <%= user.last_photo.title %><br>
+      by <a href="/users/<%=user.id%>"><%= user.name %></a> <br>
+
+      <% if !user.last_photo.tags.empty? %>
+        Tagged as: <% user.last_photo.tags.each do |tag| %>
+        <a href="/tags/<%= tag.id %>"> #<%= tag.name %></a> &nbsp;
+        <% end %>
+      <% end %>
+
+      <br>
+
+      <img src="<%=user.last_photo.url %>" alt="<%=user.last_photo.title %>"></br></br>
+
+  <% end %>

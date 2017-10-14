@@ -1,0 +1,14 @@
+<h1><%=@user.name%></h1>
+<h2>Photos</h2>
+<a href="/users/<%=@user.id %>/photos/new"><h3>Add New Photo</h3></a>
+<br>
+  <%@user.photos.each do |photo|%>
+  <div> <%=photo.title%> <br>
+    <% if !photo.tags.empty? %>
+      Tagged as: <% photo.tags.each do |tag| %>
+      <a href="/tags/<%= tag.id %>"> #<%= tag.name %></a> &nbsp;
+      <% end %>
+    <% end %> <br>
+  <img src="<%=photo.url %>" alt="<%=photo.title %>"></div>
+  <%end%>
+</ul>

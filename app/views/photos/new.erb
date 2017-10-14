@@ -1,0 +1,13 @@
+<h1>Add A New Photo for <%=@user.name%></h1>
+
+<form class="" action="/users/<%=@user.id%>/photos" method="post">
+<p>Title of your photo: <input type="text" name="photo[name]" value=""></p>
+<p>Url of your photo on the web: <input type="text" name="photo[url]" value=""></p>
+<p>Tags for your photo: <br>
+  <% @tags.each do |tag| %>
+  <input type="checkbox" name="photo[tags][]" value="<%=tag.id %>"><%=tag.name %>
+  <% end %> <br>
+...or create a new tag:<br>
+<input type="text" name="user[photo][tag]" value="">
+<input type="submit" name="" value="Add Photo">
+</form>
